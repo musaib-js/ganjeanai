@@ -91,9 +91,10 @@ if user_input:
     # Append chatbot response
     st.session_state.messages.append({"role": "bot", "text": response})
 
-# Display chat messages
-for msg in st.session_state.messages:
+# Display chat messages in reverse order
+for msg in reversed(st.session_state.messages):
     if msg["role"] == "user":
         st.markdown(f"**You:** {msg['text']}")
     else:
-        st.markdown(f"**Ganjean AI** {msg['text']}")
+        st.markdown(f"**Ganjean AI:** {msg['text']}")
+
