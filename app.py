@@ -9,8 +9,6 @@ detail_classes = ["get test report", "get appointment details", "get order detai
 foul_classes = ["foul"]
 
 
-
-# Placeholder function for Gemini chatbot response
 def chatbot_response(user_input):
     classification, warning = classify_and_extract(user_input)
     phone_numbers, order_numbers = extract_indian_phone_and_order_numbers(user_input)
@@ -24,7 +22,7 @@ def chatbot_response(user_input):
         response = synthesize_response(user_input, details="To get details, please provide your order number.")
         return response
     elif classification in new_classes and phone_number:
-        response = synthesize_response(user_input, details="Appointment/Order/Test booked successfully. Your phone number is: " + phone_number)
+        response = synthesize_response(user_input, details="Appointment/Order/Test booked successfully")
         return response
     elif classification in detail_classes and order_number:
         mock_test_report = {
